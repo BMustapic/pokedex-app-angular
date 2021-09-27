@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import {
-  IPokeApiResult,
   IPokemon,
   IPokemonSpecies,
 } from 'src/app/models/poke-api';
