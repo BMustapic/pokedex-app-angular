@@ -1,0 +1,22 @@
+<input
+  class="w-full rounded-md text-lg p-4 border-2 border-gray-300"
+  type="text"
+  [(ngModel)]="searchTerm"
+  (ngModelChange)="onSearchChange($event)"
+  placeholder="Search Pokemon..."
+/>
+
+<h1 class="text-4xl text-center my-8 uppercase">This is my Pokedex App</h1>
+<h2 class="text-2xl text-center my-8 uppercase">Generation {{arabicToRomanNumeral(currentGeneration)}}</h2>
+
+<div class="flex justify-center w-full">
+  <button class="mx-4 text-lg text-white font-bold rounded" [ngClass]="{'bg-gray-700': currentGeneration === 1, 'bg-blue-600': currentGeneration !== 1}" [disabled]="currentGeneration === 1" (click)="previousGeneration()">Previous Generation</button>
+  <button class="mx-4 text-lg text-white font-bold rounded" [ngClass]="{'bg-gray-700': currentGeneration === 5, 'bg-blue-600': currentGeneration !== 5}" [disabled]="currentGeneration === 5" (click)="nextGeneration()">Next Generation</button>
+</div>
+
+<div class="py-4 grid gap-4 md:grid-cols-2 grid-cols-1">
+  <poke-app-poke-card
+    *ngFor="let mon of filteredPokemon"
+    [pokemon]="mon"
+  ></poke-app-poke-card>
+</div>
